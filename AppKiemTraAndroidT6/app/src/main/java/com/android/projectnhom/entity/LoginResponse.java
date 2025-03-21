@@ -1,3 +1,4 @@
+//Huynh Thai Toan 22110436
 package com.android.projectnhom.entity;
 
 public class LoginResponse {
@@ -24,3 +25,4 @@ public class LoginResponse {
         return id;
     }
 }
+//Huynh Thai Toan 22110436

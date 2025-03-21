@@ -1,3 +1,4 @@
+//Huynh Thai Toan 22110436
 package com.android.projectnhom.activity;
 
 import android.content.Intent;
@@ -82,3 +83,4 @@ public class LoginActivity extends AppCompatActivity {
         edPassword = findViewById(R.id.text_password);
     }
 }
+//Huynh Thai Toan 22110436

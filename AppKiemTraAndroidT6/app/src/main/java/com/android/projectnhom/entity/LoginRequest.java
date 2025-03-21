@@ -1,3 +1,4 @@
+//Huynh Thai Toan 22110436
 package com.android.projectnhom.entity;
 
 public class LoginRequest {
@@ -26,3 +27,4 @@ public class LoginRequest {
         this.password = password;
     }
 }
+//Huynh Thai Toan 22110436

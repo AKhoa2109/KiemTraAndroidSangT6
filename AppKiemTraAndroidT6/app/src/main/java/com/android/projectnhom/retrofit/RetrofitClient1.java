@@ -23,7 +23,7 @@ public class RetrofitClient1 extends BaseClient {
     }
 
 
-
+    //Huynh Thai Toan 22110436
     public static ApiService getApiService() {
         if (retrofit == null) {
             // Thêm logging (tuỳ chọn)
@@ -42,4 +42,5 @@ public class RetrofitClient1 extends BaseClient {
         }
         return retrofit.create(ApiService.class);
     }
+    //Huynh Thai Toan 22110436
 }
