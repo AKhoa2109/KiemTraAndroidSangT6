@@ -1,8 +1,8 @@
 - Giao diện login
   ![Alt text](image.png)
 - Giao diện đăng ký
-  ![Alt text](image1.png)
+  ![Alt text](image1.jpg)
 - Giao diện trang bắt đầu
-  ![Alt text](image3.png)
+  ![Alt text](image3.jpg)
 - Giao diện OTP
-  ![Alt text](image2.png)
+  ![Alt text](image2.jpg)
