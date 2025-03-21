@@ -133,9 +133,10 @@ public class LoginActivity extends AppCompatActivity {
             focusView = edUsername;
             cancel = true;
         }else if (!isEmailValid (email)) {
+            edUsername.setError (getString(R.string.error_invaliad_email)); focusView = edUsername;
+            cancel = true;
         }
-        edUsername.setError (getString(R.string.error_invaliad_email)); focusView = edUsername;
-        cancel = true;
+
         if (cancel) {
             focusView.requestFocus();
         } else {
