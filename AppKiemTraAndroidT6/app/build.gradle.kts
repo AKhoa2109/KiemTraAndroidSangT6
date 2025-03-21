@@ -40,6 +40,7 @@ dependencies {
     implementation(libs.retrofit) // Retrofit core
     implementation(libs.converterGson) // Convert JSON sang Object Java
     implementation(libs.gson)
+    implementation(libs.okhttp.logging)
     implementation(libs.glide)
     implementation(libs.viewpager2)
     implementation(libs.circleimageview)
