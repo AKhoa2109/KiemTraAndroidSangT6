@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- 22110418 Nguyễn Tuấn Thành-->
+
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="180dp"
         android:layout_margin="5dp"
-        android:layout_marginRight="8dp"
         android:elevation="8dp"
-        android:padding="5dp"
+        app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/image_cate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#26C6DA"
+            >
+
+            <!-- Hình ảnh tròn -->
+
+            <!-- Tên sản phẩm -->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageProduct"
                 android:layout_width="120dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginEnd="3dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-            </ImageView>
             <TextView
-                android:id="@+id/tvNameCategory"
+                android:id="@+id/tvNameProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name cate"
-                app:layout_constraintEnd_toEndOf="@+id/image_cate"
-                app:layout_constraintStart_toStartOf="@+id/image_cate"
-                app:layout_constraintBottom_toBottomOf="@id/image_cate">
-
-            </TextView>
+                android:layout_marginTop="10dp"
+                android:text="Beef and Mustard Pie"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageProduct"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
