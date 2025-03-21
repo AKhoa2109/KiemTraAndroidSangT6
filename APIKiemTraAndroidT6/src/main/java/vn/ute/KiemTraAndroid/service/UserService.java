@@ -15,6 +15,7 @@ import jakarta.mail.internet.MimeMessage;
 import jakarta.transaction.Transactional;
 import vn.ute.KiemTraAndroid.dto.request.LoginRequest;
 import vn.ute.KiemTraAndroid.dto.response.LoginResponse;
+import vn.ute.KiemTraAndroid.dto.response.UserResponse;
 import vn.ute.KiemTraAndroid.entity.Otp;
 import vn.ute.KiemTraAndroid.entity.User;
 import vn.ute.KiemTraAndroid.repository.OtpRepository;
@@ -65,6 +66,7 @@ public class UserService {
             return false;
         }
         User user = new User(name, email, password);
+        user.setActive(true);
         userRepository.save(user);
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime expiresAt = now.plusMinutes(5);
@@ -90,8 +92,8 @@ public class UserService {
             User user = userRepository.findByEmail(email);
             if (user != null) {
                 user.setActive(true);
-                userRepository.save(user); // C?p nh?t tr?ng th�i trong DB
-                otpRepository.deleteByEmail(email); // X�a OTP sau khi k�ch ho?t th�nh c�ng
+                userRepository.save(user);
+                otpRepository.deleteByEmail(email);
                 return true;
             }
         }

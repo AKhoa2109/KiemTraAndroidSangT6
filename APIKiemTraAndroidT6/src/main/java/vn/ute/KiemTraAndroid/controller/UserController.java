@@ -4,13 +4,11 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import vn.ute.KiemTraAndroid.dto.request.LoginRequest;
 import vn.ute.KiemTraAndroid.dto.response.LoginResponse;
+import vn.ute.KiemTraAndroid.dto.response.UserResponse;
 import vn.ute.KiemTraAndroid.service.UserService;
 
 @RestController
@@ -50,7 +48,7 @@ public class UserController {
             return ResponseEntity.badRequest().body("OTP ho?c email kh�ng h?p l?.");
         }
     }
-    
+        
     /*Huynh Thai Toan 22110436*/
 
     @PostMapping("/login")

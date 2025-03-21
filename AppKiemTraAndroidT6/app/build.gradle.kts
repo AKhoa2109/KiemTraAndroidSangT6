@@ -46,6 +46,7 @@ dependencies {
     implementation(libs.circleimageview)
     implementation(libs.cardview)
     implementation(libs.swiperefreshlayout)
+    implementation(libs.core.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

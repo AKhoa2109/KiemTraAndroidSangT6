@@ -11,6 +11,8 @@ import com.android.projectnhom.entity.UserResponse;
 import java.util.List;
 import java.util.Map;
 
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -20,11 +22,10 @@ public interface APIService {
     @GET("categories")
     Call<List<Category>> getCategoriesAll();
 
-    @POST("/register")
-    Call<String> register(@Body Map<String, String> request);
-
-    @POST("/activate")
-    Call<String> activate(@Body Map<String, String> request);
+    @POST("register")
+    Call<ResponseBody> register(@Body Map<String, String> request);
+    @POST("activate")
+    Call<ResponseBody> activate(@Body Map<String, String> request);
     //Le Dinh Loc - 22110369
     @GET("users/{id}")
     Call<UserResponse> getUserApi(@Path("id") Long userId);
