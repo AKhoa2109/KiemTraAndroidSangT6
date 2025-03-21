@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 /*Nguyễn Hoàng Anh Khoa - 22110352*/
 public class PrefManager {
     Context context;
-    PrefManager(Context context){
+    public PrefManager(Context context){
         this.context = context;
     }
 
