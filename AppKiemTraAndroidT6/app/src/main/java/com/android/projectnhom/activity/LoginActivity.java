@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.projectnhom.PrefManager;
 import com.android.projectnhom.R;
-
+/*Nguyễn Hoàng Anh Khoa - 22110352*/
 public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     EditText edUsername, edPassword;
@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private void AnhXa(){
         btnLogin = findViewById(R.id.btn_login);
         edUsername = findViewById(R.id.edtusername);
@@ -60,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private void attemptLogin() {
         edUsername.setError(null);
         edPassword.setError (null);
@@ -90,19 +92,23 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+    /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private void startHomeActivity() {
         Intent intent = new Intent( this, MainActivity.class);
         startActivity(intent);
         finish();
     }
 
+    /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private void saveLoginDetails(String email, String password) {
         new PrefManager(this).saveLoginDetails(email, password);
     }
 
+    /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private boolean isEmailValid(String email) {
         return email.contains("@");
     }
+    /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private boolean isPasswordValid(String password) {
         return password.length() > 8;
     }
