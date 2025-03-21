@@ -7,7 +7,9 @@
     app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent">
-    <!-- 22110379 Võ Văn Nam -->
+    <!-- 22110379 Võ Văn Nam
+        22110352 Nguyễn hoàng anh khoa
+    -->
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
