@@ -77,7 +77,7 @@ public class UserService {
         return true;
     }
 
-    @Transactional
+
     public boolean active(String email, String otp) {
         Optional<Otp> otpOptional = otpRepository.findByEmailAndOtpCode(email, otp);
         if (otpOptional.isPresent()) {
