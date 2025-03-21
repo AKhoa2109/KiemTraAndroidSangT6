@@ -6,7 +6,7 @@
     android:fillViewport="true"
     android:padding="20dp"
     android:background="@android:color/white">
-<!--Châu Văn Thân 22110425-->
+    <!--Châu Văn Thân 22110425-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,7 +73,6 @@
         </LinearLayout>
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -124,17 +123,6 @@
                 android:inputType="textPassword"/>
         </LinearLayout>
 
-        <!-- Điều khoản -->
-        <TextView
-            android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="By clicking the Register button, you agree to the public offer"
-            android:textSize="12sp"
-            android:textColor="@android:color/darker_gray"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"/>
-
         <!-- Nút Đăng ký -->
         <Button
             android:id="@+id/btnRegister"
@@ -145,48 +133,5 @@
             android:textColor="@android:color/white"
             android:textStyle="bold"
             android:layout_marginTop="25dp"/>
-
-        <!-- OR Continue With -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="- OR Continue with -"
-            android:layout_marginTop="20dp"
-            android:textColor="@android:color/darker_gray"/>
-
-        <!-- Các nút đăng nhập bằng Google, Apple, Facebook -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="10dp">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_google"
-                android:layout_margin="10dp"/>
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_apple"
-                android:layout_margin="10dp"/>
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_face"
-                android:layout_margin="10dp" />
-        </LinearLayout>
-
-        <!-- Đã có tài khoản -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="I Already Have an Account Login"
-            android:textColor="@android:color/holo_red_light" />
     </LinearLayout>
 </ScrollView>

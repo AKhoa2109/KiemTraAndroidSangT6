@@ -7,14 +7,6 @@
     android:background="@android:color/white"
     android:padding="20dp">
 
-    <!-- Nút quay lại -->
-    <ImageView
-        android:id="@+id/btnBack"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_gravity="start"
-        android:src="@drawable/ic_arrow_back"
-        android:contentDescription="Back" />
 
     <!-- Tiêu đề -->
     <TextView

@@ -40,6 +40,7 @@ dependencies {
     implementation(libs.retrofit) // Retrofit core
     implementation(libs.converterGson) // Convert JSON sang Object Java
     implementation(libs.gson)
+    implementation(libs.okhttp.logging)
     implementation(libs.glide)
     implementation(libs.viewpager2)
     implementation(libs.circleimageview)
@@ -47,4 +48,5 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     annotationProcessor(libs.glideCompiler)
+    implementation(libs.converter.scalars)
 }

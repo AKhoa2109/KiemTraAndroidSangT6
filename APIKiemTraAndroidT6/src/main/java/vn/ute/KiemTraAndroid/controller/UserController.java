@@ -2,10 +2,8 @@ package vn.ute.KiemTraAndroid.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import vn.ute.KiemTraAndroid.dto.response.UserResponse;
 import vn.ute.KiemTraAndroid.service.UserService;
 
 import java.util.Map;
@@ -16,7 +14,12 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/register")
+//	@GetMapping("/{id}")
+//    public UserResponse getUserById(@PathVariable int id) {
+//        return userService.getUserById(id);
+//    }
+
+    @PostMapping(value = "/register", produces = "text/plain; charset=UTF-8")
     public ResponseEntity<String> register(@RequestBody Map<String, String> request) {
         String name = request.get("name");
         String email = request.get("email");
@@ -24,9 +27,9 @@ public class UserController {
         String confirmPassword = request.get("confirmPassword");
         boolean success = userService.register(name, email, password, confirmPassword);
         if (success) {
-            return ResponseEntity.ok("Đăng ký thành công. Kiểm tra OTP được gửi qua email");
+            return ResponseEntity.ok("Đăng ký thành công. OTP gửi qua mail");
         } else {
-            return ResponseEntity.badRequest().body("Đã có lỗi");
+            return ResponseEntity.badRequest().body("Có lỗi");
         }
     }
 
@@ -36,9 +39,9 @@ public class UserController {
         String otp = request.get("otp");
         boolean success = userService.active(email, otp);
         if (success) {
-            return ResponseEntity.ok("Kích hoạt tài khoản thành công.");
+            return ResponseEntity.ok("K�ch ho?t t�i kho?n th�nh c�ng.");
         } else {
-            return ResponseEntity.badRequest().body("OTP hoặc email không hợp lệ.");
+            return ResponseEntity.badRequest().body("OTP ho?c email kh�ng h?p l?.");
         }
     }
 }

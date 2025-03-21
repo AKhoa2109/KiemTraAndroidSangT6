@@ -8,7 +8,6 @@ import lombok.Setter;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 public class User {
     @Id

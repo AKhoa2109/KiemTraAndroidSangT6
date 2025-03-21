@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import vn.ute.KiemTraAndroid.dto.response.UserResponse;
 import vn.ute.KiemTraAndroid.entity.Otp;
 import vn.ute.KiemTraAndroid.entity.User;
 import vn.ute.KiemTraAndroid.repository.OtpRepository;
@@ -33,6 +34,26 @@ public class UserService {
         this.userRepository = userRepository;
         this.otpRepository = otpRepository;
     }
+
+//	public UserResponse getUserById(int id) {
+//        Optional<User> userOpt = userRepository.findById(id);
+//        if(userOpt.isPresent()) {
+//            User user = userOpt.get();
+////            return UserResponse.builder()
+////                    .userId(user.getUserId())
+////                    .image(user.getImage())
+////                    .name(user.getName())
+////                    .email(user.getEmail())
+////            .build();
+//            UserResponse userResponse = new UserResponse();
+//            userResponse.setId(user.getId());
+//            userResponse.setImage(user.getImage());
+//            userResponse.setName(user.getName());
+//            userResponse.setEmail(user.getEmail());
+//            return userResponse;
+//        }
+//        return null;
+//    }
 
     public boolean register(String name, String email, String confirmPassword, String password) {
         if (userRepository.existsByEmail(email)) {
@@ -67,8 +88,8 @@ public class UserService {
             User user = userRepository.findByEmail(email);
             if (user != null) {
                 user.setActive(true);
-                userRepository.save(user); // Cập nhật trạng thái trong DB
-                otpRepository.deleteByEmail(email); // Xóa OTP sau khi kích hoạt thành công
+                userRepository.save(user); // C?p nh?t tr?ng th�i trong DB
+                otpRepository.deleteByEmail(email); // X�a OTP sau khi k�ch ho?t th�nh c�ng
                 return true;
             }
         }
@@ -87,7 +108,7 @@ public class UserService {
             helper.setFrom(fromEmail);
             helper.setTo(email);
             helper.setSubject(subject);
-            helper.setText("OTP của bạn là: " + otp);
+            helper.setText("OTP c?a b?n l�: " + otp);
             javaMailSender.send(message);
         } catch (MessagingException e) {
             e.printStackTrace();
