@@ -1,6 +1,10 @@
 package com.android.projectnhom.retrofit;
 
+import com.android.projectnhom.entity.LoginRequest;
+import com.android.projectnhom.entity.LoginResponse;
+
 import com.android.projectnhom.entity.Product;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -9,8 +13,13 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+
+import retrofit2.http.POST;
+
 import retrofit2.http.Path;
+
 import retrofit2.http.Query;
 
 
@@ -23,6 +32,10 @@ public interface ApiService {
             .build()
             .create(ApiService.class);
 
+    /*Toan*/
+    @POST("api/users/login")
+    Call<LoginResponse> login(@Body LoginRequest loginRequest);
+    /*Toan*/
 
 
 }
