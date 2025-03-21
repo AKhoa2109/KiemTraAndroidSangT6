@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,9 +24,7 @@ import com.android.projectnhom.adapter.ProductAdapter;
 import com.android.projectnhom.entity.Category;
 import com.android.projectnhom.entity.Product;
 import com.android.projectnhom.entity.UserResponse;
-import com.android.projectnhom.retrofit.ApiService;
-import com.android.projectnhom.retrofit.ApiService2;
-import com.android.projectnhom.retrofit.RetrofitClient1;
+import com.android.projectnhom.retrofit.RetrofitClient;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -109,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void GetCategory() {
         // Gọi Interface trong APIService
-        apiService = RetrofitClient1.getInstance().create(APIService.class);
+        apiService = RetrofitClient.getInstance().create(APIService.class);
 
         // Sự kiện kéo để làm mới
         swipeRefreshLayout.setOnRefreshListener(() -> {
@@ -191,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Le Dinh Loc - 22110369
     private void getUser(Long i) {
-        ApiService2.apiService.getUserApi(i).enqueue(new Callback<UserResponse>() {
+        apiService.getUserApi(i).enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 UserResponse userResponse = response.body();

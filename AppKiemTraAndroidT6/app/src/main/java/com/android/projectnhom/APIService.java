@@ -2,7 +2,10 @@
 package com.android.projectnhom;
 
 import com.android.projectnhom.entity.Category;
+import com.android.projectnhom.entity.LoginRequest;
+import com.android.projectnhom.entity.LoginResponse;
 import com.android.projectnhom.entity.Product;
+import com.android.projectnhom.entity.UserResponse;
 
 
 import java.util.List;
@@ -17,12 +20,15 @@ public interface APIService {
     @GET("categories")
     Call<List<Category>> getCategoriesAll();
 
-    @POST("/api/register")
+    @POST("/register")
     Call<String> register(@Body Map<String, String> request);
 
-    @POST("/api/activate")
+    @POST("/activate")
     Call<String> activate(@Body Map<String, String> request);
-
+    @GET("users/{id}")
+    Call<UserResponse> getUserApi(@Path("id") Long userId);
+    @POST("users/login")
+    Call<LoginResponse> login(@Body LoginRequest loginRequest);
     //Nguyễn Tuấn Thành - 22110418
     @GET("product/category/{categoryId}")
     Call<List<Product>> getProductsByCategory(@Path("categoryId") Long categoryId);

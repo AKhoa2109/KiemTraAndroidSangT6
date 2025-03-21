@@ -17,12 +17,12 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.projectnhom.APIService;
 import com.android.projectnhom.PrefManager;
 import com.android.projectnhom.R;
 import com.android.projectnhom.entity.LoginRequest;
 import com.android.projectnhom.entity.LoginResponse;
-import com.android.projectnhom.retrofit.ApiService;
-import com.android.projectnhom.retrofit.RetrofitClient1;
+import com.android.projectnhom.retrofit.RetrofitClient;
 /*Nguyễn Hoàng Anh Khoa - 22110352*/
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 // Gọi API login
                 LoginRequest loginRequest = new LoginRequest(email, password);
-                ApiService apiService = RetrofitClient1.getApiService();
+                APIService apiService = RetrofitClient.getApiService();
                 Call<LoginResponse> call = apiService.login(loginRequest);
 
                 call.enqueue(new Callback<LoginResponse>() {
