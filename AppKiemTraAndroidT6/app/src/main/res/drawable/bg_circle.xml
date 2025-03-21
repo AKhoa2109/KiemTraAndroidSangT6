@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- Màu nền của hình tròn -->
+    <solid android:color="#BB86FC" />
+
+    <!-- Độ dày viền (nếu muốn)
+    <stroke
+        android:width="2dp"
+        android:color="@android:color/black" />
+    -->
+
+    <!-- Kích thước tối thiểu của hình tròn (tùy chọn)
+         Nếu bạn muốn hình tròn lớn hơn hoặc kiểm soát kích thước:
+    <size
+        android:width="80dp"
+        android:height="80dp" />
+    -->
+
+</shape>
