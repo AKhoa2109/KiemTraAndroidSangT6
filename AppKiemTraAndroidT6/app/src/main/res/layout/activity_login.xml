@@ -78,10 +78,11 @@
                 android:id="@+id/edtusername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+
                 android:drawableEnd="@drawable/icodone"
                 android:drawableStart="@drawable/icouser"
                 />
+            <!--android:inputType="textEmailAddress"-->
 
             <View
                 android:layout_width="wrap_content"
