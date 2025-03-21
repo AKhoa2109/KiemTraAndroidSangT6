@@ -65,7 +65,8 @@ public class LoginActivity extends AppCompatActivity {
     private void attemptLogin() {
         edUsername.setError(null);
         edPassword.setError (null);
-        String email = edUsername.getText().toString(); String password = edPassword.getText().toString();
+        String email = edUsername.getText().toString();
+        String password = edPassword.getText().toString();
         boolean cancel = false;
         View focusView = null;
         if (!TextUtils.isEmpty(password) && !isPasswordValid (password)) {
@@ -78,9 +79,11 @@ public class LoginActivity extends AppCompatActivity {
             focusView = edUsername;
             cancel = true;
         }else if (!isEmailValid (email)) {
+            edUsername.setError(getString(R.string.error_invaliad_email));
+            focusView = edUsername;
+            cancel = true;
         }
-        edUsername.setError (getString(R.string.error_invaliad_email)); focusView = edUsername;
-        cancel = true;
+
         if (cancel) {
             focusView.requestFocus();
         } else {

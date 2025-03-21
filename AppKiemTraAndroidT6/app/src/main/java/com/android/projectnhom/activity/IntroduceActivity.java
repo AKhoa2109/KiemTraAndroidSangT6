@@ -28,6 +28,8 @@ public class IntroduceActivity extends AppCompatActivity {
             return insets;
         });
 
+        prefManager = new PrefManager(this);
+
         AnhXa();
 
         btnStart.setOnClickListener(new View.OnClickListener() {
