@@ -7,8 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 public class RetrofitClient1 extends BaseClient {
-    private static final String BASE_URL = "http://10.0.2.2:8080/api/";
-    //private static final String BASE_URL = "http://app.iotstar.vn:8080/appfoods/";
+    private static final String BASE_URL = "http://192.168.58.22:8080/v1/api/";
 
     private static Retrofit retrofit;
 
@@ -21,6 +20,7 @@ public class RetrofitClient1 extends BaseClient {
         }
         return retrofit;
     }
+
 
 
     //Huynh Thai Toan 22110436
@@ -43,4 +43,5 @@ public class RetrofitClient1 extends BaseClient {
         return retrofit.create(ApiService.class);
     }
     //Huynh Thai Toan 22110436
+
 }
