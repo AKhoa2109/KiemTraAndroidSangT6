@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ProjectNhom</string>
+    <string name="error_field_required">Email không được rỗng</string>
+    <string name="error_invaliad_email">Email không đúng định dạng</string>
+    <string name="error_invaliad_password">Mật khẩu lớn hơn 4 ký tự</string>
 </resources>

@@ -10,6 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
+//Le Dinh Loc - 22110369
 public interface ApiService2 {
     Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
     ApiService2 apiService = new Retrofit.Builder()
@@ -18,7 +19,7 @@ public interface ApiService2 {
             .build()
             .create(ApiService2.class);
 
-    //Le Dinh Loc - 22110369
+
     @GET("users/{id}")
     Call<UserResponse> getUserApi(@Path("id") Long userId);
 
