@@ -47,11 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         prefManager = new PrefManager(this);
         AnhXa();
 
-        if (!prefManager.isUserLogOut()) {
-            loginByShared(prefManager.getEmail(), prefManager.getPassword());
-            return;
-        }
-
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,27 +95,6 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-            }
-        });
-    }
-
-    //Le Dinh Loc - 22110369
-    private void loginByShared(String email, String pass){
-        APIService apiService = RetrofitClient.getApiService();
-        apiService.login(new LoginRequest(email, pass)).enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    LoginResponse loginResponse = response.body();
-                    if (loginResponse.getUserId() != -1) {
-                      //  startHomeActivity(loginResponse.getUserId());
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(LoginActivity.this, "Error khi login " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
