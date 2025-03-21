@@ -7,7 +7,7 @@
     android:background="#FFFFFF"
     android:orientation="vertical"
     android:id="@+id/main"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <!-- ScrollView để nội dung có thể cuộn -->
     <!-- 22110379 Võ Văn Nam -->
