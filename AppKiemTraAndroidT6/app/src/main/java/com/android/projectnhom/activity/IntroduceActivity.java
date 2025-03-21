@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.android.projectnhom.PrefManager;
 import com.android.projectnhom.R;
-
+/*Nguyễn Hoàng Anh Khoa - 22110352*/
 public class IntroduceActivity extends AppCompatActivity {
     private PrefManager prefManager;
     Button btnStart;
