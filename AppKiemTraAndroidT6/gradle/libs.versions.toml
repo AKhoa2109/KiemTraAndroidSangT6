@@ -17,6 +17,7 @@ okhttp= "4.11.0"
 cardview = "1.0.0"
 converterScalars = "2.9.0"
 swiperefreshlayout = "1.1.0"
+core-ktx = "1.12.0"
 
 
 [libraries]
@@ -41,6 +42,9 @@ converter-scalars = { group = "com.squareup.retrofit2", name = "converter-scalar
 
 # circleImage
 circleimageview = {group= "de.hdodenhof", name = "circleimageview", version.ref ="circleimageview"}
+
+
+core-ktx = {group= "androidx.core", name = "core-ktx", version.ref ="core-ktx"}
 
 
 

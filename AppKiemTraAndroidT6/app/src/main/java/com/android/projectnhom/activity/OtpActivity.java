@@ -2,6 +2,7 @@ package com.android.projectnhom.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,6 +16,8 @@ import com.android.projectnhom.retrofit.RetrofitClient;
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -46,7 +49,12 @@ public class OtpActivity extends AppCompatActivity {
 
         email = getIntent().getStringExtra("email");
 
-        btnVerify.setOnClickListener(view -> verifyOtp(email, otp));
+        btnVerify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                verifyOtp(email,otp);
+            }
+        });
     }
 
     private void verifyOtp(String email, String otp) {
@@ -55,17 +63,17 @@ public class OtpActivity extends AppCompatActivity {
         request.put("otp", otp);
 
         APIService apiService = RetrofitClient.getApiService();
-        Call<String> call = apiService.activate(request);
-        call.enqueue(new Callback<String>() {
+        Call<ResponseBody> call = apiService.activate(request);
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                     Intent intent = new Intent(OtpActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
             }
         });
     }

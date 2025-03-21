@@ -7,9 +7,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class User {
     @Id
@@ -31,11 +33,5 @@ public class User {
         this.password = password;
     }
 
-    public User() {
 
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
 }
