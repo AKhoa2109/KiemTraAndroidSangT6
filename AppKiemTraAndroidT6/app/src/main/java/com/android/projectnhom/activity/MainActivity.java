@@ -2,10 +2,12 @@
 package com.android.projectnhom.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.projectnhom.APIService;
+import com.android.projectnhom.PrefManager;
 import com.android.projectnhom.R;
 import com.android.projectnhom.adapter.CategoryAdapter;
 import com.android.projectnhom.adapter.ProductAdapter;
@@ -57,12 +60,18 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imgProfile;
     TextView txtUsername;
+    Intent intent;
 
+    ImageButton btnLogout;
+
+    PrefManager prefManager;
     // Khởi tạo danh sách
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        intent = getIntent();
+
         initViews();
         fetchCategories();
         fetchProducts(Long.valueOf(2));
@@ -74,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.swipe_refresh);
         progressBar = findViewById(R.id.progressBar);
         btnLoadMore = findViewById(R.id.btn_load_more);
+        btnLogout = findViewById(R.id.btn_logout);
+        prefManager = new PrefManager(this);
 
         // Thiết lập RecyclerView cho danh mục sản phẩm (Nằm ngang)
         categoryAdapter = new CategoryAdapter(this, categoryList, new CategoryAdapter.OnCategoryClickListener() {
@@ -93,7 +104,23 @@ public class MainActivity extends AppCompatActivity {
 
         AnhXa(); // Gọi hàm ánh xạ
         GetCategory(); // Load dữ liệu cho danh mục
-        getUser(Long.valueOf(1));
+
+        int userId = intent.getIntExtra("userId", 0);
+        getUser(Long.valueOf(userId));
+//        Toast.makeText(this, "Userid "+ userId, Toast.LENGTH_SHORT).show();
+
+
+        //Le Dinh Loc - 22110369
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                prefManager.logout();
+
+                Intent intent = new Intent(MainActivity.this, IntroduceActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
     @SuppressLint("WrongViewCast")
     private void AnhXa() {
@@ -103,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
         imgProfile = findViewById(R.id.imgProfile);
         txtUsername = findViewById(R.id.txtUsername);
     }
+
     private void GetCategory() {
         // Gọi Interface trong APIService
         apiService = RetrofitClient.getInstance().create(APIService.class);
@@ -195,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
                 if(userResponse == null){
                     return;
                 }
+
                 txtUsername.setText(userResponse.getName());
                 // Load ảnh từ URL vào ImageView bằng Glide
                 Glide.with(MainActivity.this)

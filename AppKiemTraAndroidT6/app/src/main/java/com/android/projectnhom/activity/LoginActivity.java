@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         AnhXa();
 
         if (!prefManager.isUserLogOut()) {
-            startHomeActivity();
+            startHomeActivity(prefManager.getUserId());
         }
 
         tvRegister.setOnClickListener(new View.OnClickListener() {
@@ -73,14 +73,15 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                         if (response.isSuccessful() && response.body() != null) {
                             LoginResponse loginResponse = response.body();
-                            if (loginResponse.getId() != -1) {
+                            if (loginResponse.getUserId() != -1) {
                                 // Đăng nhập thành công, chuyển sang MainActivity
                                 Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
                                 // Nếu người dùng chọn "Remember password"
                                 if (checkBoxRemember.isChecked()) {
-                                    prefManager.saveLoginDetails(email, password);
+                                    prefManager.saveLoginDetails(email, password, loginResponse.getUserId());
                                 }
-                                startHomeActivity();
+                                Toast.makeText(LoginActivity.this, "Userid "+ loginResponse.getUserId(), Toast.LENGTH_SHORT).show();
+                                startHomeActivity(loginResponse.getUserId());
                             } else {
                                 // Đăng nhập thất bại (email/password sai, tài khoản không active)
                                 Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
@@ -137,15 +138,17 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     /*Nguyễn Hoàng Anh Khoa - 22110352*/
-    private void startHomeActivity() {
+    private void startHomeActivity(int userId) {
         Intent intent = new Intent( this, MainActivity.class);
+        intent.putExtra("userId", userId);
         startActivity(intent);
+       // Toast.makeText(this, "Userid "+ userId, Toast.LENGTH_SHORT).show();
         finish();
     }
 
     /*Nguyễn Hoàng Anh Khoa - 22110352*/
-    private void saveLoginDetails(String email, String password) {
-        new PrefManager(this).saveLoginDetails(email, password);
+    private void saveLoginDetails(String email, String password, int userId) {
+        new PrefManager(this).saveLoginDetails(email, password, userId);
     }
 
     /*Nguyễn Hoàng Anh Khoa - 22110352*/

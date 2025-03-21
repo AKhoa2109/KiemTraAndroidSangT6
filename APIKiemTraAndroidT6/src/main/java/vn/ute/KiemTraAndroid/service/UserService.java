@@ -15,6 +15,7 @@ import jakarta.mail.internet.MimeMessage;
 import jakarta.transaction.Transactional;
 import vn.ute.KiemTraAndroid.dto.request.LoginRequest;
 import vn.ute.KiemTraAndroid.dto.response.LoginResponse;
+import vn.ute.KiemTraAndroid.dto.response.UserResponse;
 import vn.ute.KiemTraAndroid.entity.Otp;
 import vn.ute.KiemTraAndroid.entity.User;
 import vn.ute.KiemTraAndroid.repository.OtpRepository;
@@ -36,25 +37,26 @@ public class UserService {
         this.otpRepository = otpRepository;
     }
 
-//	public UserResponse getUserById(int id) {
-//        Optional<User> userOpt = userRepository.findById(id);
-//        if(userOpt.isPresent()) {
-//            User user = userOpt.get();
-////            return UserResponse.builder()
-////                    .userId(user.getUserId())
-////                    .image(user.getImage())
-////                    .name(user.getName())
-////                    .email(user.getEmail())
-////            .build();
-//            UserResponse userResponse = new UserResponse();
-//            userResponse.setId(user.getId());
-//            userResponse.setImage(user.getImage());
-//            userResponse.setName(user.getName());
-//            userResponse.setEmail(user.getEmail());
-//            return userResponse;
-//        }
-//        return null;
-//    }
+    //Le Dinh Loc - 22110369
+	public UserResponse getUserById(int id) {
+        Optional<User> userOpt = userRepository.findById(id);
+        if(userOpt.isPresent()) {
+            User user = userOpt.get();
+//            return UserResponse.builder()
+//                    .userId(user.getUserId())
+//                    .image(user.getImage())
+//                    .name(user.getName())
+//                    .email(user.getEmail())
+//            .build();
+            UserResponse userResponse = new UserResponse();
+            userResponse.setId(user.getId());
+            userResponse.setImage(user.getImage());
+            userResponse.setName(user.getName());
+            userResponse.setEmail(user.getEmail());
+            return userResponse;
+        }
+        return null;
+    }
 
     public boolean register(String name, String email, String confirmPassword, String password) {
         if (userRepository.existsByEmail(email)) {

@@ -4,12 +4,12 @@ package com.android.projectnhom.entity;
 public class LoginResponse {
     private String message;
     private String email;
-    private int id;
+    private int userId;
 
-    public LoginResponse(String message, String email, int id) {
+    public LoginResponse(String message, String email, int userId) {
         this.message = message;
         this.email = email;
-        this.id = id;
+        this.userId = userId;
     }
 
     // Getter và Setter
@@ -21,8 +21,8 @@ public class LoginResponse {
         return email;
     }
 
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 }
 //Huynh Thai Toan 22110436

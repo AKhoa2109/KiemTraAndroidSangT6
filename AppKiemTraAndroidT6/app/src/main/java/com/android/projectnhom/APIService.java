@@ -25,6 +25,7 @@ public interface APIService {
 
     @POST("/activate")
     Call<String> activate(@Body Map<String, String> request);
+    //Le Dinh Loc - 22110369
     @GET("users/{id}")
     Call<UserResponse> getUserApi(@Path("id") Long userId);
     @POST("login")
@@ -32,4 +33,5 @@ public interface APIService {
     //Nguyễn Tuấn Thành - 22110418
     @GET("product/category/{categoryId}")
     Call<List<Product>> getProductsByCategory(@Path("categoryId") Long categoryId);
+
 }

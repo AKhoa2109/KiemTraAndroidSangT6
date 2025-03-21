@@ -4,13 +4,11 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import vn.ute.KiemTraAndroid.dto.request.LoginRequest;
 import vn.ute.KiemTraAndroid.dto.response.LoginResponse;
+import vn.ute.KiemTraAndroid.dto.response.UserResponse;
 import vn.ute.KiemTraAndroid.service.UserService;
 
 @RestController
@@ -19,10 +17,11 @@ public class UserController {
     @Autowired
     UserService userService;
 
-//	@GetMapping("/{id}")
-//    public UserResponse getUserById(@PathVariable int id) {
-//        return userService.getUserById(id);
-//    }
+    //Le Dinh Loc - 22110369
+	@GetMapping("users/{id}")
+    public UserResponse getUserById(@PathVariable int id) {
+        return userService.getUserById(id);
+    }
 
     @PostMapping(value = "/register", produces = "text/plain; charset=UTF-8")
     public ResponseEntity<String> register(@RequestBody Map<String, String> request) {
