@@ -9,7 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
+// Quảng Đại Thiện - 22110426
 @Data
 @AllArgsConstructor
 @Entity

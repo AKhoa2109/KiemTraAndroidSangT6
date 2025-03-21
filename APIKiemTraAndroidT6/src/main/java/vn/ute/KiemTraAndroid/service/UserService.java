@@ -15,12 +15,11 @@ import jakarta.mail.internet.MimeMessage;
 import jakarta.transaction.Transactional;
 import vn.ute.KiemTraAndroid.dto.request.LoginRequest;
 import vn.ute.KiemTraAndroid.dto.response.LoginResponse;
-import vn.ute.KiemTraAndroid.dto.response.UserResponse;
 import vn.ute.KiemTraAndroid.entity.Otp;
 import vn.ute.KiemTraAndroid.entity.User;
 import vn.ute.KiemTraAndroid.repository.OtpRepository;
 import vn.ute.KiemTraAndroid.repository.UserRepository;
-
+// Quảng Đại Thiện - 22110426
 @Service
 public class UserService {
     private JavaMailSender javaMailSender;
@@ -38,7 +37,7 @@ public class UserService {
     }
 
     //Le Dinh Loc - 22110369
-	public UserResponse getUserById(int id) {
+    public UserResponse getUserById(int id) {
         Optional<User> userOpt = userRepository.findById(id);
         if(userOpt.isPresent()) {
             User user = userOpt.get();

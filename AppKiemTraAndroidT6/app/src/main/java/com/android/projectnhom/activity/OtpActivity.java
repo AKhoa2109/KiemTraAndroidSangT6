@@ -18,7 +18,7 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+// Quảng Đại Thiện - 22110426
 public class OtpActivity extends AppCompatActivity {
     private EditText otp1, otp2, otp3, otp4, otp5, otp6;
     private Button btnVerify;

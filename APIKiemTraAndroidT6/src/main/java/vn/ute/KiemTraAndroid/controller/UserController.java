@@ -4,11 +4,13 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import vn.ute.KiemTraAndroid.dto.request.LoginRequest;
 import vn.ute.KiemTraAndroid.dto.response.LoginResponse;
-import vn.ute.KiemTraAndroid.dto.response.UserResponse;
 import vn.ute.KiemTraAndroid.service.UserService;
 
 @RestController
@@ -18,11 +20,11 @@ public class UserController {
     UserService userService;
 
     //Le Dinh Loc - 22110369
-	@GetMapping("users/{id}")
+    @GetMapping("users/{id}")
     public UserResponse getUserById(@PathVariable int id) {
         return userService.getUserById(id);
     }
-
+    // Quảng Đại Thiện - 22110426
     @PostMapping(value = "/register", produces = "text/plain; charset=UTF-8")
     public ResponseEntity<String> register(@RequestBody Map<String, String> request) {
         String name = request.get("name");
@@ -36,7 +38,7 @@ public class UserController {
             return ResponseEntity.badRequest().body("Có lỗi");
         }
     }
-
+    // Quảng Đại Thiện - 22110426
     @PostMapping("/activate")
     public ResponseEntity<String> active(@RequestBody Map<String, String> request) {
         String email = request.get("email");
