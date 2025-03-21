@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.android.projectnhom.PrefManager;
 import com.android.projectnhom.R;
-
+/*Nguyễn Hoàng Anh Khoa - 22110352*/
 public class IntroduceActivity extends AppCompatActivity {
     private PrefManager prefManager;
     Button btnStart;
@@ -27,6 +27,8 @@ public class IntroduceActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        prefManager = new PrefManager(this);
 
         AnhXa();
 

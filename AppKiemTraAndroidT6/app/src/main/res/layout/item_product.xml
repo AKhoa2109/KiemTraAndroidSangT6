@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
-
     <!-- 22110418 Nguyễn Tuấn Thành-->
+
     <androidx.cardview.widget.CardView
         android:layout_width="100dp"
         android:layout_height="150dp"

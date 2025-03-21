@@ -45,9 +45,12 @@ dependencies {
     implementation(libs.viewpager2)
     implementation(libs.circleimageview)
     implementation(libs.cardview)
+    implementation(libs.swiperefreshlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     annotationProcessor(libs.glideCompiler)
-    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation(libs.converter.scalars)
+    implementation(libs.converter.scalars)
+    implementation(libs.swiperefreshlayout)
 }

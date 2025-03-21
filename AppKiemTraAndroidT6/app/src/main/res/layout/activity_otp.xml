@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@android:color/white"
+    android:padding="20dp">
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhập mã OTP"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="@android:color/black" />
+
+    <!-- Mô tả -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chúng tôi đã gửi mã OTP đến mail của bạn."
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        android:gravity="center"
+        android:layout_marginTop="10dp" />
+
+    <!-- Ô nhập OTP -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="6">
+
+        <EditText
+            android:id="@+id/otp1"
+            style="@style/OtpBox"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/otp2"
+            style="@style/OtpBox"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/otp3"
+            style="@style/OtpBox"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/otp4"
+            style="@style/OtpBox"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/otp5"
+            style="@style/OtpBox"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/otp6"
+            style="@style/OtpBox"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <!-- Nút xác nhận -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnverify"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Xác nhận"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

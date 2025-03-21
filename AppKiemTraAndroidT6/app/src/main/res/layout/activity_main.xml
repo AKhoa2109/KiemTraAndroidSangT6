@@ -150,7 +150,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_category"/>
 
-            <!-- Sản phẩm -->
+            <!-- Sản phẩm --> <!-- Nguyễn Tuấn Thành 22110418 -->
             <TextView
                 android:id="@+id/tvCateProduct"
                 android:layout_width="match_parent"

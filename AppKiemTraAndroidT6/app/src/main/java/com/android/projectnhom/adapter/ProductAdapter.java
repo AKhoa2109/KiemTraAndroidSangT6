@@ -1,4 +1,4 @@
-//Nguyễn Tuấn Thành 22110418 /////
+//Nguyễn Tuấn Thành 22110418
 package com.android.projectnhom.adapter;
 
 
