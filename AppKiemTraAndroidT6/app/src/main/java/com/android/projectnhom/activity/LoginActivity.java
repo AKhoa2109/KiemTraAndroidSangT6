@@ -1,9 +1,12 @@
 //Huynh Thai Toan 22110436
 package com.android.projectnhom.activity;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -45,7 +48,8 @@ public class LoginActivity extends AppCompatActivity {
         AnhXa();
 
         if (!prefManager.isUserLogOut()) {
-            startHomeActivity(prefManager.getUserId());
+            loginByShared(prefManager.getEmail(), prefManager.getPassword());
+            return;
         }
 
         tvRegister.setOnClickListener(new View.OnClickListener() {
@@ -78,9 +82,9 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
                                 // Nếu người dùng chọn "Remember password"
                                 if (checkBoxRemember.isChecked()) {
+                                    //Log.w("LoginActivity", "Email: " + email + ", Password: " + password + ", userId: " + loginResponse.getUserId());
                                     prefManager.saveLoginDetails(email, password, loginResponse.getUserId());
                                 }
-                                Toast.makeText(LoginActivity.this, "Userid "+ loginResponse.getUserId(), Toast.LENGTH_SHORT).show();
                                 startHomeActivity(loginResponse.getUserId());
                             } else {
                                 // Đăng nhập thất bại (email/password sai, tài khoản không active)
@@ -96,6 +100,27 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+            }
+        });
+    }
+
+    //Le Dinh Loc - 22110369
+    private void loginByShared(String email, String pass){
+        APIService apiService = RetrofitClient.getApiService();
+        apiService.login(new LoginRequest(email, pass)).enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    LoginResponse loginResponse = response.body();
+                    if (loginResponse.getUserId() != -1) {
+                      //  startHomeActivity(loginResponse.getUserId());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Toast.makeText(LoginActivity.this, "Error khi login " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

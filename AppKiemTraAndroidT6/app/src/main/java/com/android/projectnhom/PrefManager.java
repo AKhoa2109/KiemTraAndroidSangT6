@@ -17,7 +17,7 @@ public class PrefManager {
         editor.putString("Password",password);
         editor.putInt("userId", userId);
         editor.putBoolean("isLoggedIn", true);
-        editor.apply();
+        editor.commit();
     }
     public void logout(){
         SharedPreferences sharedPreferences = context.getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
