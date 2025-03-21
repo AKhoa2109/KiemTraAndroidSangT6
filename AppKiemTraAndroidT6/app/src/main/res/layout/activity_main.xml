@@ -174,23 +174,67 @@
 
             <!-- Last Product -->
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Last Product"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:padding="10dp"/>
-
-            <!-- GridLayout hiển thị sản phẩm dạng 2x3 -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewLastProduct"
+                android:id="@+id/tv_lastproduct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:clipToPadding="false"
-                android:overScrollMode="never"
-                />
+                android:text="Áo sơ mi"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
+            <!-- FrameLayout để chứa SwipeRefreshLayout và ProgressBar -->
+            <FrameLayout
+                android:id="@+id/frame_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/et_search"
+                app:layout_constraintBottom_toTopOf="@id/btn_load_more">
+
+                <!-- SwipeRefreshLayout để làm mới danh sách -->
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/swipe_refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- RecyclerView -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rc_lastproduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"/>
+
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+                <!-- ProgressBar khi tải dữ liệu -->
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+
+            <!-- Nút "Tải thêm" để lazy load -->
+            <Button
+                android:id="@+id/btn_load_more"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Tải thêm"
+                android:padding="2dp"
+                android:visibility="gone"
+                android:background="@drawable/rounded_border"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:elevation="3dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/frame_container" />
         </LinearLayout>
     </ScrollView>
 
