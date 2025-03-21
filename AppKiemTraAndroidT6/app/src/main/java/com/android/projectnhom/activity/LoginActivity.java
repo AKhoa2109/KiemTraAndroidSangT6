@@ -33,12 +33,20 @@ public class LoginActivity extends AppCompatActivity {
     EditText edUsername, edPassword;
     CheckBox checkBoxRemember;
     TextView tvRegister;
+
+    private PrefManager prefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+
+        prefManager = new PrefManager(this);
         AnhXa();
+
+        if (!prefManager.isUserLogOut()) {
+            startHomeActivity();
+        }
 
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,18 +54,15 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
-
+        //Huynh Thai Toan 22110436
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = edUsername.getText().toString().trim();
                 String password = edPassword.getText().toString().trim();
 
-                if (email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Please enter email and password", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
+                attemptLogin();
+                //Huynh Thai Toan 22110436
                 // Gọi API login
                 LoginRequest loginRequest = new LoginRequest(email, password);
                 APIService apiService = RetrofitClient.getApiService();
@@ -71,9 +76,11 @@ public class LoginActivity extends AppCompatActivity {
                             if (loginResponse.getId() != -1) {
                                 // Đăng nhập thành công, chuyển sang MainActivity
                                 Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(intent);
-                                finish(); // Đóng LoginActivity
+                                // Nếu người dùng chọn "Remember password"
+                                if (checkBoxRemember.isChecked()) {
+                                    prefManager.saveLoginDetails(email, password);
+                                }
+                                startHomeActivity();
                             } else {
                                 // Đăng nhập thất bại (email/password sai, tài khoản không active)
                                 Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
@@ -90,29 +97,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
-
-
-        edPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if(i == R.id.login || i == EditorInfo.IME_NULL){
-                    attemptLogin();
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptLogin();
-            }
-        });
-
-        if(!new PrefManager(this).isUserLogOut()){
-            startHomeActivity();
-        }
     }
 
     /*Nguyễn Hoàng Anh Khoa - 22110352*/
@@ -133,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
         String password = edPassword.getText().toString();
         boolean cancel = false;
         View focusView = null;
-        if (!TextUtils.isEmpty(password) && !isPasswordValid (password)) {
+        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
             edPassword.setError(getString(R.string.error_invaliad_password));
             focusView = edPassword;
             cancel = true;
@@ -149,13 +133,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         if (cancel) {
             focusView.requestFocus();
-        } else {
-            if (checkBoxRemember.isChecked())
-                saveLoginDetails (email, password);
-            startHomeActivity();
         }
-
-
 
     }
     /*Nguyễn Hoàng Anh Khoa - 22110352*/
@@ -176,7 +154,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private boolean isPasswordValid(String password) {
-        return password.length() >= 8;
+        return password.length() > 8;
     }
 }
-//Huynh Thai Toan 22110436
+

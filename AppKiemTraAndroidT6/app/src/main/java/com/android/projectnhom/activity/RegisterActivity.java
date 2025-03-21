@@ -68,9 +68,12 @@ public class RegisterActivity extends AppCompatActivity {
 //                    Intent intent = new Intent(RegisterActivity.this, OtpActivity.class);
 //                    startActivity(intent);
 //                }
-                Intent intent = new Intent(RegisterActivity.this, OtpActivity.class);
-                intent.putExtra("email", email);
-                startActivity(intent);
+                if(response.isSuccessful()){
+                    Intent intent = new Intent(RegisterActivity.this, OtpActivity.class);
+                    intent.putExtra("email", email);
+                    startActivity(intent);
+                }
+
             }
 
             @Override

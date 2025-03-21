@@ -7,11 +7,11 @@ spring:
   datasource:
     url: "jdbc:mysql://localhost:3306/cloth_app"
     username: ${DATASOURCE_NAME:root}
-    password: ${DATASOURCE_PASS:103204}
+    password: ${DATASOURCE_PASS:123456}
     driver-class-name: com.mysql.cj.jdbc.Driver  # Thêm để đảm bảo MySQL Driver
 
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect  # Đổi thành MySQL8Dialect
+#    database-platform: org.hibernate.dialect.MySQL8Dialect  # Đổi thành MySQL8Dialect
     hibernate:
       ddl-auto: update
     show-sql: true

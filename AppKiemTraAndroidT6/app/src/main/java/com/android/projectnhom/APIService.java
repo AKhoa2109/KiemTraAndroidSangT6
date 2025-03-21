@@ -27,7 +27,7 @@ public interface APIService {
     Call<String> activate(@Body Map<String, String> request);
     @GET("users/{id}")
     Call<UserResponse> getUserApi(@Path("id") Long userId);
-    @POST("users/login")
+    @POST("login")
     Call<LoginResponse> login(@Body LoginRequest loginRequest);
     //Nguyễn Tuấn Thành - 22110418
     @GET("product/category/{categoryId}")

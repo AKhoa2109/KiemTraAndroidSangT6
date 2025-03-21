@@ -124,7 +124,6 @@ public class UserService {
             return new LoginResponse("User not found", null, -1);
         }
 
-     // Kiểm tra mật khẩu (giả sử mật khẩu trong DB không được mã hóa)
         if (!loginRequest.getPassword().equals(user.getPassword())) {
             return new LoginResponse("Invalid password", null, -1);
         }

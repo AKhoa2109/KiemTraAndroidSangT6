@@ -47,10 +47,10 @@ public class IntroduceActivity extends AppCompatActivity {
     private void checkLoginStatusAndNavigate() {
         if (prefManager.isUserLogOut()) {
 
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(IntroduceActivity.this, LoginActivity.class));
         } else {
 
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(IntroduceActivity.this, MainActivity.class));
         }
         finish();
     }
