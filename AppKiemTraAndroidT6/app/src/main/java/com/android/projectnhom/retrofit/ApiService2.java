@@ -1,28 +1,25 @@
 package com.android.projectnhom.retrofit;
 
-import com.android.projectnhom.entity.Product;
 import com.android.projectnhom.entity.UserResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
-
-/*Nguyễn Hoàng Anh Khoa - 22110352*/
-public interface ApiService {
+public interface ApiService2 {
     Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
-    ApiService apiService = new Retrofit.Builder()
-            .baseUrl("http://192.168.0.102:8080/api/")
+    ApiService2 apiService = new Retrofit.Builder()
+            .baseUrl("http://10.0.2.2:8080/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-            .create(ApiService.class);
+            .create(ApiService2.class);
 
+    //Le Dinh Loc - 22110369
+    @GET("users/{id}")
+    Call<UserResponse> getUserApi(@Path("id") Long userId);
 
 }
