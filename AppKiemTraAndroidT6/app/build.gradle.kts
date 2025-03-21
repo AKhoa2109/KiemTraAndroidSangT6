@@ -51,4 +51,5 @@ dependencies {
     annotationProcessor(libs.glideCompiler)
     implementation(libs.converter.scalars)
     implementation(libs.converter.scalars)
+    implementation(libs.swiperefreshlayout)
 }
