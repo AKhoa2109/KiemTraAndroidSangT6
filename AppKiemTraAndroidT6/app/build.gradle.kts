@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.viewpager2)
     implementation(libs.circleimageview)
+    implementation(libs.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
