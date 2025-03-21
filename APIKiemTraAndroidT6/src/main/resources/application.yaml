@@ -6,8 +6,9 @@ spring:
   datasource:
     url: "jdbc:mysql://localhost:3306/cloth_app"
     username: ${DATASOURCE_NAME:root}
-    password: ${DATASOURCE_PASS:123456}
+    password: ${DATASOURCE_PASS:050804}
     driver-class-name: com.mysql.cj.jdbc.Driver  # Thêm dòng này để đảm bảo MySQL Driver
+
   jpa:
     hibernate:
       ddl-auto: update

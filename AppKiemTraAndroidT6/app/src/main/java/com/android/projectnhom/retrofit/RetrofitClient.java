@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RetrofitClient extends BaseClient {
-    private static final String BASE_URL = "http://172.20.10.2:8080/";
+    private static final String BASE_URL = "http://192.168.56.2:8080/";
     //private static final String BASE_URL = "http://app.iotstar.vn:8080/appfoods/";
     private static Retrofit retrofit = null;
 

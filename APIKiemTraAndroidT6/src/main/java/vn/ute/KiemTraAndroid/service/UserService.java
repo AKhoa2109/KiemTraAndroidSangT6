@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+
+import vn.ute.KiemTraAndroid.dto.request.LoginRequest;
+import vn.ute.KiemTraAndroid.dto.response.LoginResponse;
 import vn.ute.KiemTraAndroid.dto.response.UserResponse;
 import vn.ute.KiemTraAndroid.entity.Otp;
 import vn.ute.KiemTraAndroid.entity.User;
@@ -114,4 +117,24 @@ public class UserService {
             e.printStackTrace();
         }
     }
+    /*Huynh Thai Toan 22110436*/
+
+
+    public LoginResponse login(LoginRequest loginRequest) {
+        User user = userRepository.findByEmail(loginRequest.getEmail());
+        if (user == null) {
+            return new LoginResponse("User not found", null, -1);
+        }
+
+     // Kiểm tra mật khẩu (giả sử mật khẩu trong DB không được mã hóa)
+        if (!loginRequest.getPassword().equals(user.getPassword())) {
+            return new LoginResponse("Invalid password", null, -1);
+        }
+        if (!user.isActive()) {
+            return new LoginResponse("Account is not active", null, -1);
+        }
+
+        return new LoginResponse("Login successful", user.getEmail(), user.getId());
+    }
+    /*Huynh Thai Toan 22110436*/
 }

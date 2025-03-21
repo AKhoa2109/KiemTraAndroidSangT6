@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="843d4c46-a296-4f7f-97e5-d2896509295e" name="Changes" comment="" />
+    <list default="true" id="843d4c46-a296-4f7f-97e5-d2896509295e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIKiemTraAndroidT6/src/main/java/vn/ute/KiemTraAndroid/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/APIKiemTraAndroidT6/src/main/java/vn/ute/KiemTraAndroid/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIKiemTraAndroidT6/src/main/java/vn/ute/KiemTraAndroid/entity/Otp.java" beforeDir="false" afterPath="$PROJECT_DIR$/APIKiemTraAndroidT6/src/main/java/vn/ute/KiemTraAndroid/entity/Otp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIKiemTraAndroidT6/src/main/java/vn/ute/KiemTraAndroid/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/APIKiemTraAndroidT6/src/main/java/vn/ute/KiemTraAndroid/service/UserService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,9 +22,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2ubWqQ97BgHMrEBs39NJhp6jiwo" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,9 +37,9 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "dev__toan",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/ANDROID/KiemTraAndroidSangT6/AppKiemTraAndroidT6"
+    "last_opened_file_path": "D:/ARDRUINO/KiemTraAndroidSangT6/AppKiemTraAndroidT6"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

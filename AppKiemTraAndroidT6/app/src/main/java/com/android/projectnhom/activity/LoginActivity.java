@@ -113,8 +113,6 @@ public class LoginActivity extends AppCompatActivity {
         if(!new PrefManager(this).isUserLogOut()){
             startHomeActivity();
         }
-
-
     }
 
     /*Nguyễn Hoàng Anh Khoa - 22110352*/
@@ -149,7 +147,6 @@ public class LoginActivity extends AppCompatActivity {
             focusView = edUsername;
             cancel = true;
         }
-
         if (cancel) {
             focusView.requestFocus();
         } else {
@@ -179,7 +176,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private boolean isPasswordValid(String password) {
-        return password.length() > 8;
+        return password.length() >= 8;
     }
 }
 //Huynh Thai Toan 22110436
