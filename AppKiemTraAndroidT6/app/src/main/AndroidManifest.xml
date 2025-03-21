@@ -23,6 +23,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.IntroduceActivity"
+			android:name=".activity.OtpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
