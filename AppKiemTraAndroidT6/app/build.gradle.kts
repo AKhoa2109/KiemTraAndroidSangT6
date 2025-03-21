@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.viewpager2)
     implementation(libs.circleimageview)
     implementation(libs.cardview)
+    implementation(libs.swiperefreshlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -32,12 +32,20 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     EditText edUsername, edPassword;
     CheckBox checkBoxRemember;
+    TextView tvRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
         AnhXa();
+
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,6 +123,7 @@ public class LoginActivity extends AppCompatActivity {
         edUsername = findViewById(R.id.edtusername);
         edPassword = findViewById(R.id.edtpassword);
         checkBoxRemember = findViewById(R.id.checkbox_remember);
+        tvRegister = findViewById((R.id.textview_signup));
     }
 
 
