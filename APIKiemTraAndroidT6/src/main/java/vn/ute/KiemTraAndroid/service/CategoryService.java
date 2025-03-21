@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import vn.ute.KiemTraAndroid.entity.Category;
 import vn.ute.KiemTraAndroid.repository.CategoryRepository;
-@Service
 
+@Service
 public class CategoryService {
 	@Autowired
 	private final CategoryRepository categoryRepository;

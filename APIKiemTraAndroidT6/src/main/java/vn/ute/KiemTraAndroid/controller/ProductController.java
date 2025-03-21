@@ -15,7 +15,7 @@ import vn.ute.KiemTraAndroid.service.ProductService;
 
 
 @RestController
-@RequestMapping("v1/api/product")
+@RequestMapping("api/product")
 public class ProductController {
 	
 	@Autowired
