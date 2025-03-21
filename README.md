@@ -6,3 +6,5 @@
   ![Alt text](image3.jpg)
 - Giao diện OTP
   ![Alt text](image2.jpg)
+- Giao diện Main
+  ![Alt text](image4.jpg)
