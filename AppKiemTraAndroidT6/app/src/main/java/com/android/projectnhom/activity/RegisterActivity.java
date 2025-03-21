@@ -18,7 +18,7 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+// Quảng Đại Thiện - 22110426
 public class RegisterActivity extends AppCompatActivity {
     private EditText etUsername, etEmail, etPassword, etConfirmPassword;
     private Button btnRegister;

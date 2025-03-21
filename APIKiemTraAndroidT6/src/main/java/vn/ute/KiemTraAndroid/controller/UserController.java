@@ -23,7 +23,7 @@ public class UserController {
 //    public UserResponse getUserById(@PathVariable int id) {
 //        return userService.getUserById(id);
 //    }
-
+// Quảng Đại Thiện - 22110426
     @PostMapping(value = "/register", produces = "text/plain; charset=UTF-8")
     public ResponseEntity<String> register(@RequestBody Map<String, String> request) {
         String name = request.get("name");
@@ -37,7 +37,7 @@ public class UserController {
             return ResponseEntity.badRequest().body("Có lỗi");
         }
     }
-
+    // Quảng Đại Thiện - 22110426
     @PostMapping("/activate")
     public ResponseEntity<String> active(@RequestBody Map<String, String> request) {
         String email = request.get("email");
