@@ -49,5 +49,6 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     annotationProcessor(libs.glideCompiler)
-    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation(libs.converter.scalars)
+    implementation(libs.converter.scalars)
 }

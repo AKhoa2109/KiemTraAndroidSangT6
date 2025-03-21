@@ -23,7 +23,7 @@ import com.android.projectnhom.entity.LoginRequest;
 import com.android.projectnhom.entity.LoginResponse;
 import com.android.projectnhom.retrofit.ApiService;
 import com.android.projectnhom.retrofit.RetrofitClient1;
-
+/*Nguyễn Hoàng Anh Khoa - 22110352*/
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -109,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private void AnhXa(){
         btnLogin = findViewById(R.id.btn_login);
         edUsername = findViewById(R.id.edtusername);
@@ -117,10 +118,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private void attemptLogin() {
         edUsername.setError(null);
         edPassword.setError (null);
-        String email = edUsername.getText().toString(); String password = edPassword.getText().toString();
+        String email = edUsername.getText().toString();
+        String password = edPassword.getText().toString();
         boolean cancel = false;
         View focusView = null;
         if (!TextUtils.isEmpty(password) && !isPasswordValid (password)) {
@@ -129,11 +132,12 @@ public class LoginActivity extends AppCompatActivity {
             cancel = true;
         }
         if (TextUtils.isEmpty(email)) {
-            edUsername.setError (getString(R.string.error_field_required));
+            edUsername.setError(getString(R.string.error_field_required));
             focusView = edUsername;
             cancel = true;
         }else if (!isEmailValid (email)) {
-            edUsername.setError (getString(R.string.error_invaliad_email)); focusView = edUsername;
+            edUsername.setError(getString(R.string.error_invaliad_email));
+            focusView = edUsername;
             cancel = true;
         }
 
@@ -148,19 +152,23 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+    /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private void startHomeActivity() {
         Intent intent = new Intent( this, MainActivity.class);
         startActivity(intent);
         finish();
     }
 
+    /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private void saveLoginDetails(String email, String password) {
         new PrefManager(this).saveLoginDetails(email, password);
     }
 
+    /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private boolean isEmailValid(String email) {
         return email.contains("@");
     }
+    /*Nguyễn Hoàng Anh Khoa - 22110352*/
     private boolean isPasswordValid(String password) {
         return password.length() > 8;
     }

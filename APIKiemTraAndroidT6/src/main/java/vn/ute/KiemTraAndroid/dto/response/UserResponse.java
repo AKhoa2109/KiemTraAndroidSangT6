@@ -10,13 +10,13 @@ import lombok.Setter;
 //@AllArgsConstructor
 //@NoArgsConstructor
 public class UserResponse {
-    private Long user_id;
+    private int id;
     private String name;
     private String email;
     private String image;
 
-    public UserResponse(Long user_id, String name, String email, String image) {
-        this.user_id = user_id;
+    public UserResponse(int id, String name, String email, String image) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.image = image;
@@ -25,12 +25,12 @@ public class UserResponse {
     public UserResponse() {
     }
 
-    public Long getUser_id() {
-        return user_id;
+    public int getId() {
+        return id;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
