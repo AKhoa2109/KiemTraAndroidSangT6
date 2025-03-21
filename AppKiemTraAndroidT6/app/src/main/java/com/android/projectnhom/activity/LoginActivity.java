@@ -4,6 +4,7 @@ package com.android.projectnhom.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -35,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView tvRegister;
 
     private PrefManager prefManager;
+    private int id = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         AnhXa();
 
         if (!prefManager.isUserLogOut()) {
-            startHomeActivity();
+            startHomeActivity(id);
         }
 
         tvRegister.setOnClickListener(new View.OnClickListener() {
@@ -77,10 +79,14 @@ public class LoginActivity extends AppCompatActivity {
                                 // Đăng nhập thành công, chuyển sang MainActivity
                                 Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
                                 // Nếu người dùng chọn "Remember password"
+                                id = loginResponse.getId();
                                 if (checkBoxRemember.isChecked()) {
                                     prefManager.saveLoginDetails(email, password);
                                 }
-                                startHomeActivity();
+                                Log.d("Login", loginResponse.getId()+"");
+                                Log.d("Login", response.body()+"");
+                                startHomeActivity(loginResponse.getId());
+
                             } else {
                                 // Đăng nhập thất bại (email/password sai, tài khoản không active)
                                 Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
@@ -137,8 +143,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     /*Nguyễn Hoàng Anh Khoa - 22110352*/
-    private void startHomeActivity() {
+    private void startHomeActivity(int id) {
         Intent intent = new Intent( this, MainActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
         finish();
     }

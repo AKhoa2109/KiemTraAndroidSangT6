@@ -2,6 +2,7 @@
 package com.android.projectnhom.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -92,8 +93,10 @@ public class MainActivity extends AppCompatActivity {
         rcProduct.setAdapter(productAdapter);
 
         AnhXa(); // Gọi hàm ánh xạ
+        Intent intent = getIntent();
+        int id = intent.getIntExtra("id",1);
         GetCategory(); // Load dữ liệu cho danh mục
-        getUser(Long.valueOf(1));
+        getUser(Long.valueOf(id));
     }
     @SuppressLint("WrongViewCast")
     private void AnhXa() {
